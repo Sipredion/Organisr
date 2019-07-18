@@ -14,8 +14,13 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@organisr/ui": ["libs/ui/src/index.ts"],
+      "@organisr/data": ["libs/data/src/index.ts"],
+      "@organisr/http": ["libs/http/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

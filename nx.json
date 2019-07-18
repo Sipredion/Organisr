@@ -7,5 +7,24 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "organisr-e2e": {
+      "tags": []
+    },
+    "organisr": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
+    },
+    "data": {
+      "tags": []
+    },
+    "http": {
+      "tags": []
+    },
+    "organisr-api": {
+      "tags": []
+    }
+  }
 }

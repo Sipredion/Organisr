@@ -1,0 +1,10 @@
+<div class="ui-nav-bar">
+  <ng-content></ng-content>
+  <nav class="ui-links-set">
+    <ng-container *ngFor="let link of links">
+      <ng-container *ngIf="links && links.length > 0">
+        <organisr-link [link]="link"></organisr-link>
+      </ng-container>
+    </ng-container>
+  </nav>
+</div>

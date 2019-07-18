@@ -1,0 +1,14 @@
+<organisr-dialog>
+  <organisr-dialog-header>
+    <h1>Add a new Todo:</h1>
+  </organisr-dialog-header>
+  <organisr-dialog-body>
+    <form #formElement=ngForm (ngSubmit)="onSubmit(todo)" class="todo-form">
+      <organisr-input-text label="title" [(model)]="todo.title"></organisr-input-text>
+      <organisr-input-text label="Description" [(model)]="todo.description"></organisr-input-text>
+    </form>
+  </organisr-dialog-body>
+  <organisr-dialog-footer>
+    <button organisrButton (click)="onSubmit(todo)">Add Todo</button>
+  </organisr-dialog-footer>
+</organisr-dialog>

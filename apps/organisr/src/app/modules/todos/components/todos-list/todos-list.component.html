@@ -1,0 +1,19 @@
+<section class="todos">
+  <organisr-card>
+    <organisr-card-body>
+      <button organisrButton (click)="openModal()">New Todo</button>
+      <div class="todo-list">
+        <h2>Todo List</h2>
+        <ng-container *ngFor="let todo of todoList">
+          <organisr-single-todo
+            [todo]="todo"
+          ></organisr-single-todo>
+        </ng-container>
+      </div>
+    </organisr-card-body>
+  </organisr-card>
+</section>
+
+<ng-template #newTodo>
+  <organisr-create-todo (create)="createTodo($event)"></organisr-create-todo>
+</ng-template>
