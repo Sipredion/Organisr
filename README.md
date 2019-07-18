@@ -35,6 +35,11 @@ Below are some plugins which you can add to your workspace:
 - [Node](https://nodejs.org)
   - `ng add @nrwl/node`
 
+## This Application: 
+* Run `ng serve organisr` to serve run the application
+* make sure you have an instance of `mongod` running a terminal window 
+* Run `ng serve organisr-api` to serve the api
+
 ## Generate an application
 
 Run `ng g @nrwl/angular:app my-app` to generate an application.
