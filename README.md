@@ -2,6 +2,11 @@
 
 This project was generated using [Nx](https://nx.dev).
 
+## This Application: 
+* Run `ng serve organisr` to serve run the application
+* make sure you have an instance of `mongod` running a terminal window 
+* Run `ng serve organisr-api` to serve the api
+
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
 
 🔎 **Nx is a set of Angular CLI power-ups for modern development.**
