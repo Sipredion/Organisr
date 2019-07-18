@@ -1,6 +1,5 @@
 import { Injectable, TemplateRef } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { ModalModule } from '@organisr/ui';
 
 @Injectable({
   providedIn: 'root'
