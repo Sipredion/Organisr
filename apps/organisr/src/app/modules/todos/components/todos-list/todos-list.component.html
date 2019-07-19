@@ -6,13 +6,15 @@
         <div class="w-100 d-flex justify-content-center my-2">
           <button organisrButton color="primary" (click)="openModal()">New Todo</button>
         </div>
-        <ng-container *ngFor="let todo of todoList">
-          <organisr-single-todo
-            class="w-75"
-            [todo]="todo"
-            (status)="updateTodo($event._id, todo)"
-            (delete)="deleteTodo($event)"
-          ></organisr-single-todo>
+        <ng-container *ngIf="todoList && todoList.length > 0; else noTodos">
+          <ng-container *ngFor="let todo of todoList">
+            <organisr-single-todo
+              class="w-75"
+              [todo]="todo"
+              (status)="updateTodo($event._id, todo)"
+              (delete)="deleteTodo($event)"
+            ></organisr-single-todo>
+          </ng-container>
         </ng-container>
       </div>
     </organisr-card-body>
@@ -21,4 +23,8 @@
 
 <ng-template #newTodo>
   <organisr-create-todo (create)="createTodo($event)"></organisr-create-todo>
+</ng-template>
+
+<ng-template #noTodos>
+  <p class="text-dark text-center my-4">Congratulations! There are no Todos left to complete!</p>
 </ng-template>
