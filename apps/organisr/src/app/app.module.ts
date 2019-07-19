@@ -8,6 +8,12 @@ import { HomeComponent } from './components/home/home.component';
 import { UiModule } from '@organisr/ui';
 import { HttpClientModule } from '@angular/common/http';
 
+const theme = {
+  primary: '12, 103, 153',
+  accent: '95, 176, 4',
+  danger: '241, 59, 6',
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    UiModule,
+    UiModule.forRoot(theme),
     HttpClientModule
   ],
   providers: [],

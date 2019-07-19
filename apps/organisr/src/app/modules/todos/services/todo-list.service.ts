@@ -13,7 +13,11 @@ export class TodoListService {
   }
 
   getAllTodos(): Observable<Array<Todo>> {
-    return this.todosService.getAllTodos()
+    return this.todosService.getAllTodos();
+  }
+
+  getTodoById(id: string): Observable<Todo> {
+    return this.todosService.getTodoById(id);
   }
 
   createTodo(todo: Todo): Observable<Todo> {

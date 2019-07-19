@@ -10,6 +10,8 @@ export class InputTextComponent extends FormControl implements OnInit {
 
   modelValue: string;
 
+  @Input() type: 'input' | 'textarea' = 'input';
+  @Input() appearance: 'outline' | 'fill' | 'standard' | 'legacy' = 'legacy';
   @Input() label: string;
   @Input()
   get model(): string {

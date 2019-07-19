@@ -8,7 +8,8 @@ import { Todo } from '@organisr/data';
 })
 export class SingleTodoComponent implements OnInit {
 
-  @Input() todo: Todo;
+  @Input() todo: any;
+  // @Input() todo: Todo;
 
   @Output() status = new EventEmitter<any>();
   @Output() delete = new EventEmitter<string>();

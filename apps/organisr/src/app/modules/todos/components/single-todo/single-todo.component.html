@@ -1,26 +1,71 @@
-<div class="single-todo">
-  <organisr-card>
-    <organisr-card-body>
-      <div class="d-flex justify-content-around align-items-center">
-        <div class="todo-item">
-          <h4>{{todo.title}}</h4>
-          <p>{{todo.description}}</p>
+<div class="single-todo" [class.complete]="todo.isComplete">
+  <organisr-card color="primary">
+    <organisr-card-header>
+      <div class="d-flex align-items-center w-100">
+        <div class="w-50 text-center">
+          <h3>{{todo.title}}</h3>
         </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <button organisrButton (click)="deleteTodo(todo._id)">Delete</button>
-          <button organisrButton (click)="updateTodoStatus(todo.isComplete)">
-            <ng-container *ngIf="todo.isComplete; then complete; else inComplete"></ng-container>
-          </button>
+        <div class="w-50 text-center">
+          <small>status: </small>
+          <ng-container *ngIf="todo.isComplete">
+            <small class="text-success">Complete</small>
+          </ng-container>
+          <ng-container *ngIf="!todo.isComplete">
+            <small class="text-info">To Do</small>
+          </ng-container>
         </div>
       </div>
+    </organisr-card-header>
+    
+    <organisr-card-body>
+      <div class="todo-item">
+        <p>{{todo.description}}</p>
+      </div>
     </organisr-card-body>
+    
+    <organisr-card-footer>
+      <div class="todo-item-actions">
+        <a [routerLink]="'/todos/detail/' + todo._id">
+          <button
+            organisrRoundButton
+            size="md"
+            color="primary"
+            class="m-2"
+          >
+            <i class="fas fa-align-center text-info"></i>
+          </button>
+        </a>
+        <button
+          organisrRoundButton
+          size="md"
+          color="danger"
+          class="m-2"
+          (click)="deleteTodo(todo._id)"
+        >
+          <i class="fas fa-times text-danger"></i>
+        </button>
+        <button
+          organisrRoundButton
+          size="md"
+          class="m-2"
+          [color]="todo.isComplete | todoButtonColor"
+          (click)="updateTodoStatus(todo.isComplete)"
+        >
+          <ng-container
+            *ngIf="todo.isComplete;
+              then complete;
+              else inComplete"
+          ></ng-container>
+        </button>
+      </div>
+    </organisr-card-footer>
   </organisr-card>
 </div>
 
 <ng-template #complete>
-  Undo
+  <i class="fas fa-undo text-info"></i>
 </ng-template>
 
 <ng-template #inComplete>
-  Complete
+  <i class="fas fa-check text-success"></i>
 </ng-template>

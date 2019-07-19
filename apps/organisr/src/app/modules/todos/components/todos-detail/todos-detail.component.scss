@@ -1,0 +1,21 @@
+.todo-item-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-body {
+  padding: 1.5rem;
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}

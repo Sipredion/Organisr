@@ -8,9 +8,10 @@ import { UiModule } from '@organisr/ui';
 import { CreateTodoComponent } from './components/create-todo/create-todo.component';
 import { FormsModule } from '@angular/forms';
 import { SingleTodoComponent } from './components/single-todo/single-todo.component';
+import { TodoButtonColorPipe } from './pipes/todo-button-color.pipe';
 
 @NgModule({
-  declarations: [TodosListComponent, TodosDetailComponent, CreateTodoComponent, SingleTodoComponent],
+  declarations: [TodosListComponent, TodosDetailComponent, CreateTodoComponent, SingleTodoComponent, TodoButtonColorPipe],
   imports: [
     CommonModule,
     TodosRoutingModule,

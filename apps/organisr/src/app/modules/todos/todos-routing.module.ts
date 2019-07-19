@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     children: [
       {path: 'dash', component: TodosListComponent},
-      {path: 'todo/:id', component: TodosDetailComponent}
+      {path: 'detail/:id', component: TodosDetailComponent}
     ]
   }
 ];

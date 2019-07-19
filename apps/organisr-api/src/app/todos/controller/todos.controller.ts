@@ -1,6 +1,7 @@
 import { Controller, Get, Response, HttpStatus, Param, Body, Post, Patch, Delete, Put } from '@nestjs/common';
 import { CreateTodoDto } from '@organisr/data';
 import { TodosService } from '../services/todos.service';
+import { debug } from 'console';
 
 @Controller('todos')
 export class TodosController {
@@ -10,6 +11,7 @@ export class TodosController {
 
   @Get()
   public async getTodos(@Response() res) {
+    debug('hello');
     const todos = await this.todosService.findAll();
     return res.status(HttpStatus.OK).json(todos);
   }
@@ -29,8 +31,10 @@ export class TodosController {
 
   @Put('/:id')
   public async updateTodo(@Param() param, @Response() res, @Body() body) {
+    debug('testing');
 
     const todo = await this.todosService.update(param.id, body);
+    debug(todo);
     return res.status(HttpStatus.OK).json(todo);
   }
 

@@ -1,3 +1,20 @@
-<mat-form-field>
-  <input matInput type="text" [id]="model" [placeholder]="label" aria-label="label" [(ngModel)]="model">
+<mat-form-field [appearance]="appearance" class="w-100">
+  <input
+    *ngIf="type === 'input'"
+    matInput
+    type="text"
+    aria-label="label"
+    [id]="model"
+    [placeholder]="label"
+    [(ngModel)]="model"
+  >
+  <textarea
+    *ngIf="type === 'textarea'"
+    matInput
+    type="text"
+    aria-label="label"
+    [id]="model"
+    [placeholder]="label"
+    [(ngModel)]="model"
+  ></textarea>
 </mat-form-field>

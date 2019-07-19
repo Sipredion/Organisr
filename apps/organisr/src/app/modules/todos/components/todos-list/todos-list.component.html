@@ -1,12 +1,17 @@
 <section class="todos">
   <organisr-card>
     <organisr-card-body>
-      <button organisrButton (click)="openModal()">New Todo</button>
       <div class="todo-list">
-        <h2>Todo List</h2>
+        <h1>Todo List</h1>
+        <div class="w-100 d-flex justify-content-center my-2">
+          <button organisrButton color="primary" (click)="openModal()">New Todo</button>
+        </div>
         <ng-container *ngFor="let todo of todoList">
           <organisr-single-todo
+            class="w-75"
             [todo]="todo"
+            (status)="updateTodo($event._id, todo)"
+            (delete)="deleteTodo($event)"
           ></organisr-single-todo>
         </ng-container>
       </div>

@@ -24,14 +24,9 @@ export class TodosListComponent implements OnInit {
 
   fetchTodos() {
     this.todoListService.getAllTodos().subscribe(todos => {
-      console.log(todos);
       this.todoList = todos;
+      console.log(todos);
     });
-  }
-
-  changeTodoStatus(todo: Todo) {
-    todo.isComplete = !todo.isComplete;
-    this.updateTodo(todo._id, todo);
   }
 
   createTodo(todo: Todo) {
@@ -41,14 +36,11 @@ export class TodosListComponent implements OnInit {
   }
 
   updateTodo(id: string, todo: Todo) {
-    this.todoListService.updateTodo(todo, id).subscribe(result => {
-      this.todoList = this.todoList.filter(item => item._id !== result._id);
-      this.todoList.push(todo);
-    });
+    this.todoListService.updateTodo(todo, id).subscribe();
   }
 
   deleteTodo(id: string) {
-    this.todoListService.deleteTodo(id).subscribe(m => {
+    this.todoListService.deleteTodo(id).subscribe(() => {
       this.todoList = this.todoList.filter(todo => todo._id !== id);
     });
   }

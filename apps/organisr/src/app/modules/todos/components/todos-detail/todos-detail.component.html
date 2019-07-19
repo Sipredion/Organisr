@@ -1,3 +1,92 @@
-<p>
-  todos-detail works!
-</p>
+<section class="todo-detail" *ngIf="todo">
+  <organisr-card>
+    <organisr-card-header>
+      <div class="todo-header">
+        <ng-container *ngIf="!isEditingTitle; else editTitle">
+          <h1 class="text-center mr-3">{{todo.title}}</h1>
+          <button organisrRoundButton size="sm" color="primary" (click)="isEditingTitle = true">
+            <i class="fas fa-pencil-alt fa-sm text-info"></i>
+          </button>
+        </ng-container>
+      </div>
+    </organisr-card-header>
+    
+    <organisr-card-body>
+      <div class="todo-body">
+        <ng-container *ngIf="!isEditingBody; else editBody">
+          <p>{{todo.description}}</p>
+          <button organisrRoundButton size="sm" color="primary" (click)="isEditingBody = true">
+            <i class="fas fa-pencil-alt fa-sm text-info"></i>
+          </button>
+        </ng-container>
+      </div>
+    </organisr-card-body>
+    
+    
+    <organisr-card-footer>
+      <div class="todo-item-actions">
+        <a routerLink="/todos/dash">
+          <button
+            organisrRoundButton
+            color="primary"
+            class="m-2"
+          >
+            <i class="fas fa-arrow-left text-info"></i>
+          </button>
+        </a>
+        <button
+          organisrRoundButton
+          color="danger"
+          class="m-2"
+          (click)="deleteTodo(todo._id)"
+        >
+          <i class="fas fa-times text-danger"></i>
+        </button>
+        <button
+          organisrRoundButton
+          class="m-2"
+          [color]="todo.isComplete | todoButtonColor"
+          (click)="updateTodo(todo._id, todo)"
+        >
+          <ng-container
+            *ngIf="todo.isComplete;
+              then complete;
+              else inComplete"
+          ></ng-container>
+        </button>
+      </div>
+    </organisr-card-footer>
+  </organisr-card>
+</section>
+
+<ng-template #editTitle>
+  <organisr-input-text label="Title" [(model)]="todo.title"></organisr-input-text>
+  <div class="d-flex justify-content-center align-items-center">
+    <button organisrRoundButton size="sm" color="accent" class="mx-2" (click)="updateTodo(todo._id, todo, 'title')">
+      <i class="fas fa-save fa-sm -text-success"></i>
+    </button>
+    <button organisrRoundButton size="sm" color="danger" (click)="isEditingTitle = false">
+      <i class="fas fa-times text-danger"></i>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #editBody>
+  <organisr-input-text label="Title" [(model)]="todo.description" type="textarea" class="w-100"></organisr-input-text>
+  <div class="d-flex justify-content-center align-items-center">
+    <button organisrRoundButton size="sm" color="accent" class="mx-2" (click)="updateTodo(todo._id, todo, 'body')">
+      <i class="fas fa-save fa-sm -text-success"></i>
+    </button>
+    <button organisrRoundButton size="sm" color="danger" (click)="isEditingBody = false">
+      <i class="fas fa-times text-danger"></i>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #complete>
+  <i class="fas fa-undo text-info"></i>
+</ng-template>
+
+<ng-template #inComplete>
+  <i class="fas fa-check text-success"></i>
+</ng-template>
